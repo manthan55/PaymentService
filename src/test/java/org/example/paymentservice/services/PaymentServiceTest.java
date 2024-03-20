@@ -29,8 +29,8 @@ public class PaymentServiceTest {
     @Mock
     private IPaymentGateway paymentGateway;
 
-//    @Test
-//    @DisplayName("Happy - generate payment link")
+    @Test
+    @DisplayName("Happy - generate payment link")
     public void Test_GivenValidDetails_GeneratePaymentLink() throws InvalidPaymentGatewayException, PaymentLinkGenerationException {
         // Arrange
         String orderId = "123";
