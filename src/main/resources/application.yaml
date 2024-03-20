@@ -1,0 +1,55 @@
+server:
+  port: "8080"
+
+spring:
+  application:
+    name: "PaymentService-CustomName"
+  profiles:
+    # https://codesarray.com/view/Multiple-application-properties-file-in-spring-boot
+    active: "dev"
+    default: "dev"
+  jpa:
+    hibernate:
+      ddl-auto: "update"
+    show-sql: "true"
+  datasource:
+    url: "jdbc:mysql://localhost:3306/paymentservice?createDatabaseIfNotExist=true"
+    username: "root"
+    password: "root"
+    driver-class-name: "com.mysql.cj.jdbc.Driver"
+
+
+#Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,env,beans"
+  info:
+    env:
+      enabled: "true"
+
+#Actuator
+# /actuator/info
+info:
+  application:
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+    applicationName: ${spring.application.name}
+
+
+
+# Test/development credentials
+razorpay:
+  key:
+    id: "default"
+    secret: "default"
+  callback_url: "default"
+
+stripe:
+  authentication:
+    key: "default"
+    secret: "default"
+  productId: "default"
+  priceId: "default"

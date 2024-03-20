@@ -1,0 +1,21 @@
+spring:
+  application:
+      name: "PaymentService-CustomName-dev"
+  datasource:
+    url: "jdbc:mysql://localhost:3306/paymentservice?createDatabaseIfNotExist=true"
+    username: "root"
+    password: "root"
+
+# Test/development credentials
+razorpay:
+  key:
+    id: "rzp_test_YSuZlXDBnEVSyu"
+    secret: "ezOQmk7iCrYXQCAwxyvE8LmB"
+#  callback_url: "http://localhost:"+${server.port}
+
+stripe:
+  authentication:
+    key: "pk_test_51MIQcQSEhwYlVKGstemA34etSFG10it0jX3LYR0IaIStfIE8mpGLveizZIApRG2LasX6i3tu5q5xALYoAXxMmbmZ00HtAFVDBH"
+    secret: "sk_test_51MIQcQSEhwYlVKGsjF1i6ja5O6MMaE9NS7mGaqJii7qDMY2qElKsMDwV0r9mwAgvlSQO00EQ9SNzHx8x2ZN5Xc4f00RRPz1XnE"
+  productId: "prod_Plvg6pM22BIUfh"
+  priceId: "price_1OwNpESEhwYlVKGs5Ha6sNUz"

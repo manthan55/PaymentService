@@ -1,14 +1,19 @@
 package org.example.paymentservice.controllers;
 
-import org.example.paymentservice.dtos.InititatePaymentDto;
+import org.example.paymentservice.dto.GeneratePaymentLinkRequestDTO;
+import org.example.paymentservice.dto.GeneratePaymentLinkResponseDTO;
+import org.example.paymentservice.dto.api.APIResponse;
+import org.example.paymentservice.dto.api.APIResponseFailure;
+import org.example.paymentservice.dto.api.APIResponseSuccess;
+import org.example.paymentservice.exceptions.InvalidPaymentGatewayException;
+import org.example.paymentservice.exceptions.PaymentLinkGenerationException;
 import org.example.paymentservice.services.PaymentService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/payments")
+@RequestMapping("/payment")
 public class PaymentController {
 
     private PaymentService paymentService;
@@ -17,9 +22,17 @@ public class PaymentController {
         this.paymentService = paymentService;
     }
 
-    //Return Payment Link of PG
-    @PostMapping
-    public String initiatePayment(@RequestBody InititatePaymentDto inititatePaymentDto) {
-       return paymentService.initiatePayment(inititatePaymentDto.getOrderId(),inititatePaymentDto.getEmail(),inititatePaymentDto.getPhoneNumber(),inititatePaymentDto.getAmount());
+    @PostMapping("/generatePaymentLink")
+    public ResponseEntity<APIResponse> generatePaymentLink(@RequestBody GeneratePaymentLinkRequestDTO requestDTO){
+        APIResponse response;
+        HttpStatus httpStatus = HttpStatus.CREATED;
+        try {
+            String paymentLink = paymentService.generatePaymentLink(requestDTO.getOrderId(), requestDTO.getPgVendor());
+            response = new APIResponseSuccess<GeneratePaymentLinkResponseDTO>(new GeneratePaymentLinkResponseDTO(requestDTO.getOrderId(), paymentLink));
+        } catch (PaymentLinkGenerationException | InvalidPaymentGatewayException e) {
+            response = new APIResponseFailure(e);
+            httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+        }
+        return ResponseEntity.status(httpStatus).body(response);
     }
 }
