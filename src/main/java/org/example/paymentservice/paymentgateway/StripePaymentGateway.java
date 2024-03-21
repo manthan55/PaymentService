@@ -21,28 +21,11 @@ public class StripePaymentGateway implements IPaymentGateway{
         this.stripeConfig = stripeConfig;
     }
 
-    private Price createPrice(Long amount) throws StripeException {
-        PriceCreateParams params =
-                PriceCreateParams.builder()
-                        .setCurrency("inr")
-                        .setUnitAmount(amount)
-                        .setProductData(
-                                PriceCreateParams
-                                        .ProductData
-                                        .builder()
-                                        .setName("spring plan")
-                                        .build()
-                        )
-                        .build();
-        return stripeClient.prices().create(params);
-    }
-
     @Override
     public String generatePaymentLink(String orderId, Long amount) throws PaymentLinkGenerationException {
         String paymentLink = null;
 
         try{
-//            Price price = createPrice(amount);
             PaymentLinkCreateParams params =
                     PaymentLinkCreateParams.builder()
                             .addLineItem(

@@ -1,10 +1,10 @@
 package org.example.paymentservice.dto.api;
 
-import lombok.Data;
+import lombok.Getter;
 
 import java.util.Arrays;
 
-@Data
+@Getter
 public class APIResponseFailure extends APIResponse {
     private String message;
     private String stackTrace;

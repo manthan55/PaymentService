@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Getter
-@Setter
 public class RazorpayConfig {
     @Value("${razorpay.key.id}")
     private String razorpayKeyId;

@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Data
+@Getter
 @AllArgsConstructor
 public class GeneratePaymentLinkResponseDTO {
     private String orderId;

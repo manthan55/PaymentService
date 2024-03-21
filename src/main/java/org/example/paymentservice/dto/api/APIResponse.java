@@ -1,8 +1,8 @@
 package org.example.paymentservice.dto.api;
 
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 public class APIResponse {
     private String traceId;
 
