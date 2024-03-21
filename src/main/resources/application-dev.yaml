@@ -1,6 +1,6 @@
 spring:
   config:
-    import: file:../../../dev.env.yaml
+    import: file:dev.env.yaml
   application:
       name: "PaymentService-CustomName-dev"
   datasource:
