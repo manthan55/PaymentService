@@ -34,3 +34,7 @@ build/
 
 # Code coverage
 htmlReport/
+
+# env.yaml's
+dev.env.yaml
+

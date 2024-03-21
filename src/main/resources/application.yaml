@@ -46,11 +46,10 @@ razorpay:
   key:
     id: "default"
     secret: "default"
-  callback_url: "default"
 
 stripe:
   authentication:
-    key: "default"
-    secret: "default"
+    publishable_key: "default"
+    secret_key: "default"
   productId: "default"
   priceId: "default"

@@ -12,7 +12,7 @@ razorpay:
 
 stripe:
   authentication:
-    key: ""
-    secret: ""
+    publishable_key: ""
+    secret_key: ""
   productId: ""
   priceId: ""

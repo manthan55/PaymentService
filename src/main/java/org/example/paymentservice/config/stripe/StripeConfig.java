@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 @Component
 @Getter
 public class StripeConfig {
-    @Value("${stripe.authentication.key}")
-    private String stripeKey;
+    @Value("${stripe.authentication.publishable_key}")
+    private String stripePublishableKey;
 
-    @Value("${stripe.authentication.secret}")
-    private String stripeSecret;
+    @Value("${stripe.authentication.secret_key}")
+    private String stripeSecretKey;
 
     @Value("${stripe.productId}")
     private String productId;
