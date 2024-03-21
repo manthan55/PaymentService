@@ -1,5 +1,6 @@
 spring:
   config:
+#    https://medium.com/@Marou_arnault/spring-boot-hide-your-credentials-fb1ca22ae911
     import: file:dev.env.yaml
   application:
       name: "PaymentService-CustomName-dev"
