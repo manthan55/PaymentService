@@ -5,21 +5,20 @@ spring:
   application:
       name: "PaymentService-CustomName-dev"
   datasource:
-#    MySQL
-    url: "jdbc:mysql://localhost:3306/paymentservice?createDatabaseIfNotExist=true"
-    username: "root"
-    password: "root"
+##    MySQL
+#    url: "jdbc:mysql://localhost:3306/paymentservice?createDatabaseIfNotExist=true"
+#    username: "root"
+#    password: "root"
 
-##    SQLite
-##    https://www.baeldung.com/spring-boot-sqlite
-##    https://www.baeldung.com/java-in-memory-databases
-##    no need to create custom DataSource bean or custom dialect
-#    url: "jdbc:sqlite:paymentDB.sqlite"
-##    this will create an in-memory database
-##    url: "jdbc:sqlite:memory:paymentDB.sqlite"
-#    username: "sa"
-#    password: "sa"
-#    driver-class-name: "org.sqlite.JDBC"
+#    SQLite
+#    https://www.baeldung.com/spring-boot-sqlite
+#    https://www.baeldung.com/java-in-memory-databases
+#    no need to create custom DataSource bean or custom dialect
+    url: "jdbc:sqlite:paymentservice_dev_DB.sqlite"
+#    this will create an in-memory database
+#    url: "jdbc:sqlite:memory:paymentDB.sqlite"
+    username: "sa"
+    password: "sa"
 
 # Test/development credentials
 razorpay:

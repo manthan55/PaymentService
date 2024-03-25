@@ -38,3 +38,5 @@ htmlReport/
 # env.yaml's
 dev.env.yaml
 
+# sqlite
+*.sqlite

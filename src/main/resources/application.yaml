@@ -13,10 +13,22 @@ spring:
       ddl-auto: "update"
     show-sql: "true"
   datasource:
-    url: "jdbc:mysql://localhost:3306/paymentservice?createDatabaseIfNotExist=true"
-    username: "root"
-    password: "root"
-    driver-class-name: "com.mysql.cj.jdbc.Driver"
+##    MySQL
+#    url: "jdbc:mysql://localhost:3306/paymentservice?createDatabaseIfNotExist=true"
+#    username: "root"
+#    password: "root"
+#    driver-class-name: "com.mysql.cj.jdbc.Driver"
+
+#    SQLite
+#    https://www.baeldung.com/spring-boot-sqlite
+#    https://www.baeldung.com/java-in-memory-databases
+#    no need to create custom DataSource bean or custom dialect
+    url: "jdbc:sqlite:paymentservice_DB.sqlite"
+#    this will create an in-memory database
+#    url: "jdbc:sqlite:memory:paymentDB.sqlite"
+    username: "sa"
+    password: "sa"
+    driver-class-name: "org.sqlite.JDBC"
 
 
 #Actuator
